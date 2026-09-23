@@ -1,0 +1,654 @@
+PART-A  CSS FOUNDATION
+
+01 ---	External CSS
+	*index.html*
+	<head>
+		<link href="style" rel="stylesheet">
+	</head>
+	
+	*style.css*
+	p {
+		color: blue;
+	}
+	
+02 ---	Internal CSS
+	<head>
+		<style>
+			h1 {
+				color: maroon;
+			}
+			p {
+				color: blue;
+			}
+		</style>
+	</head>
+	
+03 ---	Inline CSS
+	<p style="color: blue;">
+		...
+	</p>
+	
+04 ---	CSS rule / Declaration block
+	p {
+		color: blue
+	}
+	
+	p		->	selector
+	color: blue;	->	declaration
+	color		->	property
+	blue		->	value
+	{}		->	declaration block
+	
+05 ---	Universal selector for CSS resets or global settings
+	*{
+		border: 1px solid red;
+	}
+	
+	*		->	select all elements
+	
+06 ---	Class selector
+	*index.html*
+	<p class="title">
+		...
+	</p>
+	
+	*style.css*
+	.title {
+		color: teal;
+	}
+	
+07 ---	Multiple classes selector
+	*index.html*
+	<p class="title uppercase">
+		...
+	</p>
+	
+	*style.css*
+	.title {
+		color: teal;
+	}
+	.uppercase {
+		text-transform: uppercase;
+	}
+	
+08 ---	ID selector
+	*index.html*
+	<p id="article-title">
+		...
+	</p>
+	
+	*style.css*
+	#article-title {
+		front-family:cursive;
+	{
+	
+09 ---	Class vs ID
+	.class		-> reusable
+	#id		-> unique identifier
+	
+10 ---	Attribute selector
+	*index.html*
+	<a href="https://example.com/florence">
+		Florence
+	</a>
+	
+	*style.css*
+	a[href*="florence"] {
+		color: lightgreen
+	}
+	a[href^="https"] {
+		color: lightgreen
+	}
+	a[href$="florence"] {
+		color: lightgreen
+	}
+	
+	*=		-> contains "..."
+	^=		-> starts with "..."
+	$=		-> ends with "..."
+	
+11 ---	Psuedo-classes
+	a:hover{
+		color:darkorange;
+	}
+	
+	:hover
+	:active
+	:focus
+	:visited
+	:first-child
+	:last-child
+	:nth-child()
+	
+12 ---	CSS Specifility: multiple CSS rules apply on the same element, which rule wins?
+	*index.html*
+	<h1 class="headlines" id="abc">Breaking News</h1>
+	
+	*style.css*
+	h1{
+		color:red;
+	}
+	.headline{
+		corlor:blue;
+	}
+	#abc{
+		color:green;			-> "Breaking News" will be green
+	}
+	
+	ID
+	|
+	Class / attribute / psuedo-class
+	|
+	Element
+	|
+	Universal
+	
+13 ---	Two selector with the same specifility
+	*index.html*
+	<h1 class="headlines" id="abc">Breaking News</h1>
+	
+	*style.css*
+	h1{
+		color:red;
+	}
+	h1{
+		color:blue;			-> "Breaking News" will be blue
+	}
+	
+14 ---	!important
+	p {
+		color: blue !important;
+	}
+	
+	!important gives the declaration very high priority
+	But we should generally be avoided unless there is a specific reason to use
+
+15 ---	Compound selectors
+	*style.css*
+	h1.special {
+		front-family: Tahoma;
+	}
+	
+	*index.html*
+	<h1 class="special">Hello</h1>
+	
+	*Select h1 that has special class*
+
+16 ---	Descendant selectors
+	*style.css*
+	.description h5 {
+		front-family: sans-serif;
+	}
+	
+	*index.html*
+	<div class="description"> 
+		<h5>Hello</h5>
+	</div>
+
+	*Select every h5 within element that has description class*
+	
+17 ---	Grouping Selectors
+	*index.html*
+	<h1>Headlines</h1>
+	<p>Breaking News</p>
+	
+	*style.css*
+	h1,
+	p {
+		color: blue;
+	}
+	
+18 ---	Common visual properties
+	font-family: arial;
+	font-size: 16px;
+	font-weight: normal / bold;
+	text-align: left;
+	color: black;
+	
+	.main-banner{
+		background-image: url("link");
+	}
+	
+	body {
+		background-color: lightgray;
+	}
+	
+	p {
+		color: clack;
+	}
+	
+19 ---	Box model
+	--------------------------------------------------------+
+	margin	= 20px					  	|
+	----------------------------------------+		|
+	border	= 1px solid black	  	|		|
+	------------------------+		|		|
+	padding	= 20px	   	|		|		|
+	--------+	   	|		|		|
+   +--> content	|    padding	|    border	|     margin	|
+   |	--------+
+   |	   ^
+   |	   |
+   |	 width	= 300px
+   |
+   +---  height	= 150px
+	
+20 ---	Border
+	border: 1px solid red;
+	
+	border-style	solid
+			dashed
+			dotted
+			double
+			non
+	
+21 ---	Border radius: rounds the corners of an element
+	img {
+		border-radius: px / %;
+	}
+	
+22 ---	Padding
+	*Individual sides*	padding-top
+				padding-bottom
+				padding-left
+				padding-right
+	
+	*Shorthand*		padding:top right bot left	4
+				padding:top right-left bot	3
+				padding:top-bot right-left	2
+	
+23 ---	Margin
+	*Individual sides*	margin-top
+				margin-bottom
+				margin-left
+				margin-right
+	
+	*Shorthand*		margin:top right bot left	4
+				margin:top right-left bot	3
+				margin:top-bot right-left	2
+
+
+	margin: 0 auto		top/bot = 0; left/right = center align
+	
+24 ---	Width and height dimensions
+	min-width: 200px;
+	max-width: 800px;
+	
+	min-height: 100px;
+	max-height: 500px;
+	
+	These are especially useful for responsive layouts
+	
+25 ---	Overflow: Controls what happens when content is larger than its box
+	.box {
+	    width: 200px;
+	    height: 100px;
+	    overflow: auto;
+	}
+
+	overflow: visible;
+	overflow: hidden;
+	overflow: scroll;
+	overflow: auto;
+	
+	+-------------------------------------------+
+	|   +-------------+   |   +-------------+   | 
+	|   |		  |   |	  |		|   |
+	|   |  Element A  |   |   |  Element A  |   |
+	|   | margin:10px |   |	  | margin:10px |   |
+	|   |	          |   |   |	        |   |
+	|   +-------------+   |   +-------------+   |
+	+-------------------------------------------+
+	|   +-------------+   |
+	|   |		  |   |
+	|   |  Element C  |   |
+	|   | margin:10px |   |
+	|   |	          |   |
+	|   +-------------+   |
+	+---------------------+
+	
+	min-height/max-height
+	min-weught/max-weight
+	
+	overflow: scroll;
+	
+	Reset to default
+	margin:0;
+	padding:0;
+	
+26 ---	Resetting default margins and padding
+	Khi bạn tạo một tệp HTML đơn giản (chưa viết dòng CSS nào), 
+	các phần tử như tiêu đề <h1>, đoạn văn <p>, danh sách <ul> 
+	đã tự có khoảng cách xung quanh
+	
+	Đó là do các trình duyệt (Chrome, Safari, Firefox...) 
+	tự động thêm sẵn margin và padding mặc định
+
+	Vấn đề: Mỗi trình duyệt lại có bộ quy tắc mặc định hơi khác nhau,
+	khiến giao diện trang web của bạn hiển thị không đồng nhất trên các trình duyệt khác 
+	
+	<!--A simple reset-->
+	* {
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	<!--A common foundation-->
+	*,
+	*::before,
+	*::after {
+	    box-sizing: border-box;
+	}
+	
+27 ---	CSS box sizing
+	
+	+----------------------------------------------------------+
+	|							   |
+	|		+-------------------------+		   |
+	|  left padding	|      content width	  |  right padding |
+	|      20px	|	   158px	  |       20px	   |
+	|      		+-------------------------+		   |
+	|							   |
+   left border						     right border
+       1px							  1px
+        |							   |
+        +----------------------------------------------------------+
+			actual render wide = 200px
+			
+	By default:
+				box-sizing: content-box;
+	This means:
+				width represents the content width.
+	For example:
+				.box {
+				    width: 200px;
+				    padding: 20px;
+				    border: 1px solid black;
+				}
+
+	With the default content-box:
+
+				content = 200px
+				padding = 20px + 20px
+				border  = 1px + 1px
+
+				actual width = 242px
+				
+				*{
+					box-sizing:border-box;
+				}
+	
+				h1{
+					border:1px dashed #4f78c;
+					height:150px;
+					weight:200px;
+					padding:20px:
+				}
+	
+28 ---	Visibility	
+	visibility: visible; 
+	visibility: hidden; 
+	visibility: collapse;
+	
+	*The visibility property controls whether an element is visible*
+	
+29 ---	Display	
+	display: block; 
+	display: inline; 
+	display: inline-block; 
+	display: none; 
+	display: flex; 
+	display: grid;
+	
+30 ---	Positioning
+	position: static; 
+	position: relative; 
+	position: absolute; 
+	position: fixed; 
+	position: sticky;
+	
+31 ---	Top / Right / Bottom / Left
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	.child {
+	    position: absolute;
+	    top: 10px;
+	    right: 20px;
+	}
+
+32 ---	Z-index
+	.modal {
+	    position: fixed;
+	    z-index: 10;
+	}
+	Controls stacking order of positioned elements and other stacking contexts
+	
+33 ---	Flexbox
+	.container {
+	    display: flex;
+	}
+
+	*The children become flex items*
+
+	<div class="container">
+	    <div>A</div>
+	    <div>B</div>
+	    <div>C</div>
+	</div>
+	.container {
+	    display: flex;
+	}
+	
+34 ---	Flex-direction
+	flex-direction: row;
+	flex-direction: column;
+
+	Example:
+
+	.container {
+	    display: flex;
+	    flex-direction: column;
+	}
+	
+35 ---	Justify-content
+	justify-content: flex-start; 
+	justify-content: center; 
+	justify-content: flex-end; 
+	justify-content: space-between; 
+	justify-content: space-around; 
+	justify-content: space-evenly;
+	
+36 ---	Align-items
+	align-items: flex-start;
+	align-items: center;
+	align-items: flex-end;
+	stretch;
+
+	.container {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+37 ---	Gap: controls spacing between flex items
+	.container {
+	    display: flex;
+	    gap: 20px;
+	}
+	
+38 ---	CSS grid
+	.container {
+	    display: grid;
+	}
+
+	Example:
+
+	.container {
+	    display: grid;
+	    grid-template-columns: 1fr 1fr 1fr;
+	    gap: 20px;
+	}
+
+	This creates three columns.
+
+	Grid is especially useful for two-dimensional layouts:
+
+	rows
+	+
+	columns
+	
+39 ---	CSS comment
+	/* This is comment */
+	
+40 ---	Reponsive design
+	A website should adapt to different screen sizes.
+
+	One important tool is the media query:
+
+	@media (max-width: 768px) {
+	    .container {
+		flex-direction: column;
+	    }
+	}
+
+	Meaning:
+
+	Apply these styles when the viewport width is 768px or smaller.
+
+	Example:
+
+	.container {
+	    display: flex;
+	}
+
+	@media (max-width: 768px) {
+	    .container {
+		flex-direction: column;
+	    }
+	}
+	
+41 ---	CSS variables
+	CSS allows reusable custom properties
+
+	:root {
+	    --primary-color: teal;
+	    --spacing: 20px;
+	}
+
+	Use them:
+
+	button {
+	    background-color: var(--primary-color);
+	    padding: var(--spacing);
+	}
+
+	This becomes very useful in larger projects.
+
+42 ---	Psuedo-elements
+	Pseudo-elements are different from pseudo-classes.
+
+	Pseudo-class:
+
+	:hover
+
+	Pseudo-element:
+
+	::before
+	::after
+
+	Example:
+
+	.title::before {
+	    content: "★";
+	}
+
+	This creates generated content before the element's content.
+
+	Common pseudo-elements:
+
+	::before
+	::after
+	::first-letter
+	::first-line
+	
+43 ---	CSS Cascade
+	CSS's called Cascading Style Sheets because multiple rules can apply to the 1 element
+
+	The final style is determined by several factors, including:
+
+	importance
+	specificity
+	source order
+	inheritance
+
+	A useful simplified mental model is:
+
+	!important
+	↓
+	specificity
+	↓
+	later rule when specificity is equal
+
+	Do not think of CSS as simply:
+
+	"The last rule always wins."
+
+	That is incorrect.
+	
+44 ---	Inheritance
+	Some CSS properties are inherited from parent elements.
+
+	Example:
+
+	body {
+	    color: blue;
+	}
+
+	A child paragraph will normally inherit the text color:
+
+	<body>
+	    <p>Hello</p>
+	</body>
+
+	The <p> becomes blue unless another rule overrides it.
+
+	Not every CSS property is inherited.
+	
+45 ---	A basic CSS file struture
+	A simple CSS file can be organized like this:
+
+	/* Global / reset */
+	*,
+	*::before,
+	*::after {
+	    box-sizing: border-box;
+	}
+
+	/* Base styles */
+	body {
+	    margin: 0;
+	    font-family: Arial, sans-serif;
+	    color: #222;
+	}
+
+	/* Components */
+	.button {
+	    display: inline-block;
+	    padding: 10px 20px;
+	}
+
+	/* Layout */
+	.container {
+	    display: flex;
+	    gap: 20px;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+	    .container {
+		flex-direction: column;
+	    }
+	}

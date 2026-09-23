@@ -1,0 +1,7 @@
+1. A standard frontend structure
+
+/Project
+|_______ index.html 
+|_______/resources
+	|_______/css
+		|_______ 
