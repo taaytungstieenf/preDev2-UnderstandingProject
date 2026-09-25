@@ -1,0 +1,27 @@
+WM2-JavaSpringBoot-MVC
+|_______/.mvn
+|_______/src
+|	|_______/main
+|		|_______/java
+|		|	|_______/com
+|		|		|_______/example
+|		|			|_______/warehousemanagement
+|		|				|_______/controller
+|		|				|	|_______ ProductController.java
+|		|				|_______/model
+|		|				|	|_______ Product.java
+|		|				|_______/repository
+|		|				|	|_______ ProductRepository.java
+|		|				|_______/service
+|		|				|	|_______ ProductService.java
+|		|				|_______ Wm2JavaSpringBootMvcApplication.java
+|		|
+|		|_______/resources
+|			|_______/static
+|			|_______/template
+|			|	|_______ product_form.html
+|			|	|_______ product_list.html
+|			|	|_______ product_search.html
+|			|_______ application.properties
+|
+|_______ pom.xml

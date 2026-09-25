@@ -1,0 +1,13 @@
+
+		CONTROLLER
+
+USER					MODEL		DATABASE
+		VIEW
+
+1. USER sends HTTPS requests to CONTROLLER
+2. CONTROLER receives requests then call MODEL to process business
+3. MODEL reads and writes to DATABASE
+4. DATABASE returns data to MODEL
+5. MODEL returns proccessed results to CONTROLLER
+6. CONTROLLER transfers data to VIEW
+7. VIEW renders HTML and responds

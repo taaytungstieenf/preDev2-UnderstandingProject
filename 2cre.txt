@@ -1,0 +1,11 @@
+curl https://start.spring.io/starter.zip \
+	-d type=maven-project \
+	-d language=java \
+	-d bootVersion=3.5.14 \
+	-d groupId=com.example \
+	-d artifactId=WM2-JavaSpringBoot-MVC \
+	-d packageName=com.example.warehousemanagement \
+	-d packaging=jar \
+	-d javaVersion=17 \
+	-d dependencies=web,data-jpa,mysql,thymeleaf \
+	-o WM2-JavaSpringBoot-MVC \
